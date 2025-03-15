@@ -14,19 +14,31 @@ const Profile: React.FC = () => {
     }
   }, []);
 
-  const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        const base64String = reader.result as string;
-        setProfileImage(base64String);
-        localStorage.setItem("profileImage", base64String);
-      };
-      reader.readAsDataURL(file);
-    }
-  };
+//   const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+//     const file = event.target.files?.[0];
+//     if (file) {
+//       const reader = new FileReader();
+//       reader.onloadend = () => {
+//         const base64String = reader.result as string;
+//         setProfileImage(base64String);
+//         localStorage.setItem("profileImage", base64String);
+//       };
+//       reader.readAsDataURL(file);
+//     }
+//   };
 
+const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const file = event.target.files?.[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onloadend = () => {
+            const base64String = reader.result as string;
+            setProfileImage(base64String); // Set Base64 string to state
+            localStorage.setItem("profileImage", base64String); // Save Base64 string to local storage
+          };
+          reader.readAsDataURL(file); // Read the file as a Data URL
+        }
+      };
   return (
     <div
       className="relative w-12 h-12 rounded-full cursor-pointer"
