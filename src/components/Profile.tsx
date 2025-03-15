@@ -33,7 +33,7 @@ const Profile: React.FC = () => {
     >
       <label htmlFor="profile-upload" className="relative block">
         <img
-          src={profileImage || "../assets/useravatar.png"}
+          src={profileImage || "/useravatar.png"}
           alt="Profile"
           className="w-12 h-12 rounded-full object-cover transition-all duration-300 hover:brightness-75"
         />
