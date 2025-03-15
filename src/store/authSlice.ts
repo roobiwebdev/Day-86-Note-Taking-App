@@ -1,17 +1,31 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { generateToken, verifyToken } from '../utils/jwt';
 
-const initialState = {
+// Define the structure of the initial state
+interface User {
+  id: string;
+  username: string;
+  email: string;
+  // Add more fields as per your user object
+}
+
+interface AuthState {
+  user: User | null;
+  token: string | null;
+  isAuthenticated: boolean;
+}
+
+const initialState: AuthState = {
   user: null,
   token: localStorage.getItem('token'),
-  isAuthenticated: false
+  isAuthenticated: false,
 };
 
 const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
-    login: (state, action) => {
+    login: (state, action: PayloadAction<User>) => {
       const token = generateToken(action.payload);
       state.user = action.payload;
       state.token = token;
@@ -37,8 +51,8 @@ const authSlice = createSlice({
           localStorage.removeItem('token');
         }
       }
-    }
-  }
+    },
+  },
 });
 
 export const { login, logout, checkAuth } = authSlice.actions;
