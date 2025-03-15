@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Camera } from "lucide-react";
-import defProfile from "../assets/useravatar.png";
 
 const Profile: React.FC = () => {
   const [profileImage, setProfileImage] = useState<string | null>(null);
@@ -14,31 +13,18 @@ const Profile: React.FC = () => {
     }
   }, []);
 
-//   const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
-//     const file = event.target.files?.[0];
-//     if (file) {
-//       const reader = new FileReader();
-//       reader.onloadend = () => {
-//         const base64String = reader.result as string;
-//         setProfileImage(base64String);
-//         localStorage.setItem("profileImage", base64String);
-//       };
-//       reader.readAsDataURL(file);
-//     }
-//   };
-
-const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const file = event.target.files?.[0];
-        if (file) {
-          const reader = new FileReader();
-          reader.onloadend = () => {
-            const base64String = reader.result as string;
-            setProfileImage(base64String); // Set Base64 string to state
-            localStorage.setItem("profileImage", base64String); // Save Base64 string to local storage
-          };
-          reader.readAsDataURL(file); // Read the file as a Data URL
-        }
+  const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        const base64String = reader.result as string;
+        setProfileImage(base64String); // Set Base64 string to state
+        localStorage.setItem("profileImage", base64String); // Save Base64 string to local storage
       };
+      reader.readAsDataURL(file); // Read the file as a Data URL
+    }
+  };
   return (
     <div
       className="relative w-12 h-12 rounded-full cursor-pointer"
@@ -47,7 +33,7 @@ const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     >
       <label htmlFor="profile-upload" className="relative block">
         <img
-          src={profileImage || defProfile}
+          src={profileImage || "../assets/useravatar.png"}
           alt="Profile"
           className="w-12 h-12 rounded-full object-cover transition-all duration-300 hover:brightness-75"
         />
