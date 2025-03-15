@@ -8,8 +8,8 @@ import {
   TagIcon,
 } from "@heroicons/react/24/outline";
 import { getAllTags, setSelectedTag, setArchiveView } from "../store/noteSlice";
-import Logo from "../assets/logo.png";
-import LogoWhite from "../assets/logo-white.png";
+import Logo from "../assets/logo.svg";
+import LogoWhite from "../assets/logo_white.svg";
 interface RootState {
   note: {
     tags: string[];
