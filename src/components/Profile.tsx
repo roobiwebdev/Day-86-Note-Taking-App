@@ -13,13 +13,16 @@ const Profile: React.FC = () => {
     }
   }, []);
 
-  // Handle the profile image upload
   const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (file) {
-      const imageUrl = URL.createObjectURL(file);
-      setProfileImage(imageUrl); // Set the image URL to state
-      localStorage.setItem("profileImage", imageUrl); // Save image URL to local storage
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        const base64String = reader.result as string;
+        setProfileImage(base64String); // Set Base64 string to state
+        localStorage.setItem("profileImage", base64String); // Save Base64 string to local storage
+      };
+      reader.readAsDataURL(file); // Read the file as a Data URL
     }
   };
 
