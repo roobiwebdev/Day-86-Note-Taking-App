@@ -110,7 +110,8 @@
     // "skipDefaultLibCheck": true,                      /* Skip type checking .d.ts files that are included with TypeScript. */
     "skipLibCheck": true,
     "noImplicitAny": true,
-    "jsx": "react-jsx" /* Skip type checking all .d.ts files. */
+    "jsx": "react-jsx" /* Skip type checking all .d.ts files. */,
+    "typeRoots": ["./node_modules/@types", "./types"]
   },
   "include": ["src"]
 }

@@ -8,8 +8,7 @@ import {
   TagIcon,
 } from "@heroicons/react/24/outline";
 import { getAllTags, setSelectedTag, setArchiveView } from "../store/noteSlice";
-import Logo from "../assets/Logo.svg";
-import Logo_white from "../assets/Logo_white.svg";
+import Logo from "../assets/logo.png";
 
 interface RootState {
   note: {
@@ -56,7 +55,7 @@ const SideBar: React.FC = () => {
       {!darkMode ? (
         <img src={Logo} alt="Logo" className="w-24 h-24 -mt-6" />
       ) : (
-        <img src={Logo_white} alt="Logo" className="w-24 h-24 -mt-6" />
+        <img src={} alt="Logo" className="w-24 h-24 -mt-6" />
       )}
 
       <div className="flex flex-col items-start w-full gap-2 -mt-4 border-b border-b-neutral-200 pb-3 dark:border-b-slate-600">
