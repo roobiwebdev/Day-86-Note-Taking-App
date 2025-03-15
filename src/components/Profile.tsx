@@ -27,7 +27,7 @@ const Profile: React.FC = () => {
   };
   return (
     <div
-      className="relative w-12 h-12 rounded-full cursor-pointer"
+      className="relative w-11 h-11 bg-blue-700 rounded-full cursor-pointer"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
