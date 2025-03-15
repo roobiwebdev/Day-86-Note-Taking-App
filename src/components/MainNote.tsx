@@ -64,12 +64,12 @@ const MainNote = () => {
     const updateHeight = () => {
       const screenHeight = window.innerHeight;
 
-      if (screenHeight > 800) {
-        setTextareaHeight("530px"); // Large screens (monitor)
-      } else if (screenHeight <= 1080) {
-        setTextareaHeight("430px"); // PC screens
+      if (screenHeight > 776) {
+        setTextareaHeight("450px"); // Large screens (monitor)
+      } else if (screenHeight <= 776) {
+        setTextareaHeight("420px"); // PC screens
       } else {
-        setTextareaHeight("400px"); // Default for smaller screens
+        setTextareaHeight("auto"); // Default for smaller screens
       }
     };
 
@@ -78,6 +78,8 @@ const MainNote = () => {
 
     return () => window.removeEventListener("resize", updateHeight); // Cleanup
   }, []);
+  console.log(window.innerHeight);
+  // console.log(window.innerWidth);
 
   const handleChange = (newValue: Tag[] | null) => {
     setSelectedTags(newValue || []);
