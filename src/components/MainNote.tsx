@@ -65,7 +65,7 @@ const MainNote = () => {
       const screenHeight = window.innerHeight;
 
       if (screenHeight > 800) {
-        setTextareaHeight("500px"); // Large screens (monitor)
+        setTextareaHeight("530px"); // Large screens (monitor)
       } else if (screenHeight <= 1080) {
         setTextareaHeight("430px"); // PC screens
       } else {
