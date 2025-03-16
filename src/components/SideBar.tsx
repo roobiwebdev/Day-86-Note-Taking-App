@@ -1,41 +1,28 @@
 import React, { useState } from "react";
+import { Outlet, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { getAllTags, setSelectedTag, setArchiveView } from "../store/noteSlice";
 import {
   HomeIcon,
   ArchiveBoxArrowDownIcon,
   ChevronRightIcon,
   TagIcon,
 } from "@heroicons/react/24/outline";
-import { getAllTags, setSelectedTag, setArchiveView } from "../store/noteSlice";
-import Logo from "../assets/logo.svg";
-import LogoWhite from "../assets/logo_white.svg";
-interface RootState {
-  note: {
-    tags: string[];
-    selectedTag: string | null;
-  };
-  theme: {
-    darkMode: boolean;
-  };
-}
+import Logo from "../assets/Logo.svg";
+import Logo_white from "../assets/Logo_white.svg";
+import { RootState } from "../store/types"; // Assuming you have defined a RootState type
 
 const SideBar: React.FC = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  // Get Redux state
-  // const tags = useSelector((state: RootState) => state.note.tags);
-  // Inside SideBar.tsx
-
-  const tags = useSelector((state: RootState) => state.note.tags) || []; // Fallback to empty array if undefined
-
+  const tags = useSelector((state: RootState) => getAllTags(state));
   const selectedTag = useSelector((state: RootState) => state.note.selectedTag);
   const darkMode = useSelector((state: RootState) => state.theme.darkMode);
 
   const [activeButton, setActiveButton] = useState<string>("allNotes");
 
-  const handleButtonClick = (buttonName: string) => {
+  const handleButtonClick = (buttonName: string): void => {
     if (buttonName === "archivedNotes") {
       dispatch(setArchiveView(true));
     } else {
@@ -45,20 +32,20 @@ const SideBar: React.FC = () => {
     dispatch(setSelectedTag(null)); // Clear selected tag
   };
 
-  const handleTagClick = (tag: string) => {
+  const handleTagClick = (tag: string): void => {
     dispatch(setSelectedTag(tag));
     setActiveButton("tag");
   };
 
   return (
-    <div className="flex flex-col py-3 px-4 gap-3 border-r border-r-neutral-200 w-[272px] h-screen dark:bg-slate-950 dark:border-r-slate-600">
+    <div className="flex flex-col py-3 px-4 gap-3 border-r border-r-neutral-200 w-[272px] h-screen dark:bg-slate-950 dark:border-r-slate-600 ">
       {!darkMode ? (
         <img src={Logo} alt="Logo" className="w-24 h-24 -mt-6" />
       ) : (
-        <img src={LogoWhite} alt="Logo" className="w-24 h-24 -mt-6" />
+        <img src={Logo_white} alt="Logo" className="w-24 h-24 -mt-6" />
       )}
 
-      <div className="flex flex-col items-start w-full gap-2 -mt-4 border-b border-b-neutral-200 pb-3 dark:border-b-slate-600">
+      <div className="flex flex-col items-start w-full gap-2 -mt-4 border-b border-b-neutral-200 pb-3 dark:border-b-slate-600 ">
         <button
           className={`group flex items-center justify-between w-full py-3 px-3 gap-2 rounded-lg cursor-pointer hover:dark:bg-slate-800 hover:bg-neutral-100 active:bg-neutral-100 ${
             activeButton === "allNotes"
@@ -90,9 +77,9 @@ const SideBar: React.FC = () => {
           )}
         </button>
         <button
-          className={`group flex items-center justify-between w-full py-3 px-3 gap-2 rounded-lg cursor-pointer hover:bg-neutral-100 hover:dark:bg-slate-800 active:bg-neutral-100 ${
+          className={`group flex items-center justify-between w-full py-3 px-3 gap-2 rounded-lg cursor-pointer hover:bg-neutral-100  hover:dark:bg-slate-800  active:bg-neutral-100 ${
             activeButton === "archivedNotes"
-              ? "bg-neutral-100 text-neutral-950 dark:bg-slate-800"
+              ? "bg-neutral-100 text-neutral-950  dark:bg-slate-800"
               : "text-neutral-700 dark:text-white"
           }`}
           onClick={() => handleButtonClick("archivedNotes")}
@@ -120,21 +107,20 @@ const SideBar: React.FC = () => {
           )}
         </button>
       </div>
-
       <div className="flex flex-col items-start gap-3 w-full">
         <h1 className="text-sm font-medium text-neutral-500 dark:text-slate-400">
           Tags
         </h1>
         <div className="flex flex-col items-start gap-1 w-full">
-          {tags.map((tag) => (
+          {tags.map((tag: string) => (
             <button
               key={tag}
               className={`group flex items-center w-full py-2 px-3 gap-2 rounded-lg cursor-pointer hover:bg-neutral-100 dark:hover:bg-slate-800 active:bg-neutral-100 
-                ${
-                  selectedTag === tag
-                    ? "bg-neutral-100 dark:bg-slate-800 dark:text-white text-neutral-950"
-                    : "text-neutral-700 dark:text-white"
-                }`}
+                                ${
+                                  selectedTag === tag
+                                    ? "bg-neutral-100 dark:bg-slate-800 dark:text-white text-neutral-950"
+                                    : "text-neutral-700 dark:text-white"
+                                }`}
               onClick={() => handleTagClick(tag)}
             >
               <TagIcon
@@ -147,9 +133,9 @@ const SideBar: React.FC = () => {
               <p
                 className={`text-sm ${
                   selectedTag === tag
-                    ? "text-neutral-950 dark:text-white"
-                    : "text-neutral-700 dark:text-white"
-                } group-hover:text-neutral-950 dark:group-hover:text-white`}
+                    ? "text-neutral-950  dark:text-white"
+                    : "text-neutral-700  dark:text-white"
+                } group-hover:text-neutral-950  dark:group-hover:text-white`}
               >
                 {tag}
               </p>

@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { v4 as uuidv4 } from "uuid"; // Add this import
 
-// Define the types for the note state
+// Define types for Note and State
 interface Note {
   id: string;
   title: string;
@@ -106,7 +106,7 @@ const noteSlice = createSlice({
 });
 
 // Add a selector to get all tags
-export const getAllTags = (state: { note: NoteState }) => {
+export const getAllTags = (state: { note: NoteState }): string[] => {
   const tagsSet = new Set<string>();
   state.note.notes.forEach((note) => {
     note.tags.forEach((tag) => tagsSet.add(tag));
@@ -115,7 +115,7 @@ export const getAllTags = (state: { note: NoteState }) => {
 };
 
 // Add a selector to get filtered notes
-export const getFilteredNotes = (state: { note: NoteState }) => {
+export const getFilteredNotes = (state: { note: NoteState }): Note[] => {
   const notes = state.note.isArchiveView
     ? state.note.archivedNotes
     : state.note.notes;

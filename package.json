@@ -12,6 +12,10 @@
   "dependencies": {
     "@heroicons/react": "^2.1.5",
     "@reduxjs/toolkit": "^2.3.0",
+    "@tiptap/core": "^2.11.5",
+    "@tiptap/extension-placeholder": "^2.11.5",
+    "@tiptap/react": "^2.11.5",
+    "@tiptap/starter-kit": "^2.11.5",
     "date-fns": "^4.1.0",
     "lodash": "^4.17.21",
     "react": "^18.3.1",
@@ -21,6 +25,7 @@
     "react-router": "^6.28.0",
     "react-router-dom": "^6.28.0",
     "react-select": "^5.8.3",
+    "reselect": "^5.1.1",
     "uuid": "^11.0.3"
   },
   "devDependencies": {
