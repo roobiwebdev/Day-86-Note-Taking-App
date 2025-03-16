@@ -32,6 +32,9 @@ importers:
       lodash:
         specifier: ^4.17.21
         version: 4.17.21
+      lucide-react:
+        specifier: ^0.482.0
+        version: 0.482.0(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -1524,9 +1527,16 @@ packages:
   lru-cache@5.1.1:
     resolution: {integrity: sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==}
 
+<<<<<<< HEAD
   markdown-it@14.1.0:
     resolution: {integrity: sha512-a54IwgWPaeBCAAsv13YgmALOF1elABB08FxO9i+r4VFk5Vl4pKokRPeX8u5TCgSsPi6ec1otfLjdOpVcgbpshg==}
     hasBin: true
+=======
+  lucide-react@0.482.0:
+    resolution: {integrity: sha512-XM8PzHzSrg8ATmmO+fzf+JyYlVVdQnJjuyLDj2p4V2zEtcKeBNAqAoJIGFv1x2HSBa7kT8gpYUxwdQ0g7nypfw==}
+    peerDependencies:
+      react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
+>>>>>>> c72ef6bfba32f08eb928a80df97d92e84afcc599
 
   math-intrinsics@1.1.0:
     resolution: {integrity: sha512-/IXtbwEk5HTPyEwyKX6hGkYXxM9nbj64B+ilVJnC/R6B0pH5G4V3b0pVbL7DBj4tkhBAppbQUlf6F6Xl9LHu1g==}
@@ -3758,6 +3768,7 @@ snapshots:
     dependencies:
       yallist: 3.1.1
 
+<<<<<<< HEAD
   markdown-it@14.1.0:
     dependencies:
       argparse: 2.0.1
@@ -3766,6 +3777,11 @@ snapshots:
       mdurl: 2.0.0
       punycode.js: 2.3.1
       uc.micro: 2.1.0
+=======
+  lucide-react@0.482.0(react@18.3.1):
+    dependencies:
+      react: 18.3.1
+>>>>>>> c72ef6bfba32f08eb928a80df97d92e84afcc599
 
   math-intrinsics@1.1.0: {}
 

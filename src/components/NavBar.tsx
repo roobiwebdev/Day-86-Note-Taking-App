@@ -9,6 +9,7 @@ import { useNavigate } from "react-router";
 import { logout } from "../store/authSlice";
 import toast from "react-hot-toast";
 import { toggleTheme } from "../store/themeSlice";
+import Profile from "./Profile";
 
 // Define the types for the Redux state
 interface RootState {
@@ -103,6 +104,7 @@ const NavBar: React.FC = () => {
           >
             <ArrowLeftEndOnRectangleIcon className="w-5 h-5 stroke-neutral-500 dark:stroke-white" />
           </button>
+          <Profile />
         </div>
       </div>
     </div>
