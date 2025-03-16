@@ -8,8 +8,8 @@ import {
   ChevronRightIcon,
   TagIcon,
 } from "@heroicons/react/24/outline";
-import Logo from "../assets/Logo.svg";
-import Logo_white from "../assets/Logo_white.svg";
+import Logo from "../assets/logo.svg";
+import Logo_white from "../assets/logo_white.svg";
 import { RootState } from "../store/types"; // Assuming you have defined a RootState type
 
 const SideBar: React.FC = () => {
