@@ -5,7 +5,7 @@ import Dialog from "./components/Dialog";
 import ArchiveDialog from "./components/ArchiveDialog";
 import DeleteAll from "./components/DeleteAll";
 
-function App() {
+function App() 
   const dialogType = useSelector((state: any) => state.dialog.dialogType);
 
   const darkMode = useSelector((state: any) => state.theme.darkMode);
